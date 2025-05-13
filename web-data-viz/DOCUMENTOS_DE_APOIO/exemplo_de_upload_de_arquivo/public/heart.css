@@ -1,0 +1,33 @@
+
+
+.nave{
+    display: flex;
+    height: 13vh;
+    background: #ffbd59;   
+    align-items: center;
+    justify-content: space-around;
+}
+
+#img_logo{
+    width: 8vw;
+}
+
+.logo-img {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#containerNav{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navHeader{
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
