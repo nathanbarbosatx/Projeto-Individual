@@ -47,3 +47,12 @@
     justify-content: space-between;
     width: 100%;
 }
+
+/* Modificando o Painel */
+.painel-main{
+    width: 100%;
+}
+.painel-config
+{
+    width: 100%;
+}
