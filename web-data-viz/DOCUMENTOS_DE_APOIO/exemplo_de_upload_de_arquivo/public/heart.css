@@ -56,3 +56,58 @@
 {
     width: 100%;
 }
+
+/* painel-texto*/
+.painel-intro{
+    padding: 40px;
+}
+.txt-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 5%;
+    max-width: 60%;
+}
+
+.texto-intro-titulo{
+    margin: 0;
+    font-size: 25px;
+    text-align: left;
+}
+
+.txt-intro-corpo{
+    margin: 10px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+/* Organizando os 'dados mocados'*/
+.intro-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+
+.txt-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin-left: 5%;
+    max-width: 60%;
+}
+
+
+.txt-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;  
+    text-align: right;
+    gap: 20px;
+    padding-right: 5%;
+}
+
