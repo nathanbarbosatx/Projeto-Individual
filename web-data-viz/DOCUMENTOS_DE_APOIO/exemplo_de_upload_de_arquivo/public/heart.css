@@ -1,127 +1,149 @@
 /* RESET */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Cabeçalho */
 .nave {
-  display: flex;
-  height: 13vh;
-  background: #ffbd59;
-  align-items: center;
-  justify-content: space-around;
+    display: flex;
+    height: 13vh;
+    background: #ffbd59;
+    align-items: center;
+    justify-content: space-around;
 }
 
 #img_logo {
-  width: 10vw;
+    width: 10vw;
 }
 
 .logo-img {
-  display: flex;
-  align-items: flex-start;
-  padding-left: 50px;
-  width: 65%;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 50px;
+    width: 65%;
 }
 
 #containerNav {
-  margin-right: 50px;
-  width: 30%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  font-size: 19px;
-  text-decoration: none;
+    margin-right: 50px;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 19px;
+    text-decoration: none;
 }
 
 #containerNav a {
-  font-family: "Open Sans", sans-serif;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
 }
 
 #navHeader {
-  pointer-events: all;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* Imagem principal */
 .painel-main {
-  width: 100%;
+    width: 100%;
 }
+
 .painel-config {
-  width: 100%;
+    width: 100%;
 }
 
 
 .painel-intro {
-  padding: 40px;
-  background-color: #fff5d1;
+    padding: 40px;
+    background-color: #fff5d1;
 }
 
 .intro-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  gap: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 40px;
 }
+
 /* Texto introdução*/
 .txt-intro {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 60%;
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 25px;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .texto-intro-titulo {
-  font-size: 25px;
-  text-align: left;
+    font-size: 25px;
+    text-align: left;
 }
 
 .txt-intro-corpo {
-  font-size: 18px;
-  line-height: 1.6;
-  text-align: left;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
 }
+
 .txt-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  padding-right: 30px;
-  padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding-right: 30px;
+    padding-top: 10px;
+    margin-top: 10%;
 }
 
 .info-bloco {
-  margin: 0;
+    margin: 0;
+    border-left: 8px solid #2a1de0;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
+    
 }
 
 /* Texto secundário*/
-.Painel-Info-Doacao{
+.Painel-Info-Doacao {
     display: flex;
     flex-direction: column;
 
 }
-.Painel-Info-Doacao img{
+
+.Painel-Info-Doacao img {
     height: 75vh;
     border-radius: 10px;
 }
 
-/* Primeira imagem*/
+/* PAINEL DOAÇÃO*/
 
-#texto-intro-tituloH2{
+#texto-intro-tituloH2 {
     margin-top: 10%;
-    margin-left: 15%;
-    font-size: 25px;
+    margin-left: 5%;
+    font-size: 35px;
 }
+
 /*PAINEL ALIMENTOS*/
-.Painel-Alimentos{
+.Painel-Alimentos {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -129,61 +151,136 @@
     margin-top: 5%;
     align-items: center;
 }
-.texto-doacao-alimentos{
-  background-color: #fff5d1;
-  color: #333;
-  padding: 30px;
-  margin: 40px auto;
-  max-width: 800px;
-  border-left: 8px solid #f14b47;
-  border-radius: 10px;
-  font-family: "Open Sans", sans-serif;
-  text-align: justify;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+.texto-doacao-alimentos {
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 25px;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.texto-doacao-alimentos h2{
-  color: #f14b47;
-  font-family: "Caveat Brush", cursive;
-  font-size: 28px;
-  margin-bottom: 15px;
+.texto-doacao-alimentos h3 {
+    color: #f14b47;
+    font-family: "Caveat Brush", cursive;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
-.texto-doacao-alimentos p{
-  margin-bottom: 15px;
-  line-height: 1.6;
+.texto-doacao-alimentos p {
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 /* PAINEL DE ROUPAS*/
-.Painel-Roupas{
+.Painel-Roupas {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-right: 8%;
+    margin-left: 9%;
     margin-top: 5%;
 }
 
 .texto-doacao-roupas {
-  background-color: #fff5d1;
-  color: #333;
-  padding: 30px;
-  margin: 40px auto;
-  max-width: 800px;
-  border-left: 8px solid #f14b47;
-  border-radius: 10px;
-  font-family: "Open Sans", sans-serif;
-  text-align: justify;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 5px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.texto-doacao-roupas h2 {
-  color: #f14b47;
-  font-family: "Caveat Brush", cursive;
-  font-size: 28px;
-  margin-bottom: 15px;
+.texto-doacao-roupas h3 {
+    color: #f14b47;
+    font-family: "Caveat Brush", cursive;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 .texto-doacao-roupas p {
-  margin-bottom: 15px;
-  line-height: 1.6;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
+
+/*PAINEL BRINQUEDOS*/
+
+.Painel-Brinquedo {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin-right: 15px;
+    margin-top: 5%;
+    align-items: center;
+}
+
+.texto-doacao-brinquedos {
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 25px;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.texto-doacao-brinquedos h3 {
+    color: #f14b47;
+    font-family: "Caveat Brush", cursive;
+    font-size: 28px;
+    margin-bottom: 15px
+}
+
+.texto-doacao-brinquedos p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+
+/* PAINEL LIVROS */
+
+.Painel-Livros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 9%;
+    margin-top: 5%;
+}
+
+.texto-doacao-livros {
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 5px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.texto-doacao-livros h3 {
+    color: #f14b47;
+    font-family: "Caveat Brush", cursive;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.texto-doacao-livros p{
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* RODAPÉ*/
