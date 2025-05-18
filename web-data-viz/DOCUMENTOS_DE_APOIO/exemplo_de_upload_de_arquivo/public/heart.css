@@ -109,10 +109,11 @@
     gap: 20px;
     padding-right: 30px;
     padding-top: 10px;
-    margin-top: 10%;
+    margin-top: 50px;
 }
 
 .info-bloco {
+    padding: 10% 60%;
     margin: 0;
     border-left: 8px solid #2a1de0;
     border-radius: 10px;
@@ -284,3 +285,17 @@
 }
 
 /* RODAPÉ*/
+.footer-container{
+    background-color: #ff9592;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-family: cursive;
+    pointer-events: all ;
+    text-decoration: none;
+}
+
+.footer-container img{
+    height: 35vh;
+}
