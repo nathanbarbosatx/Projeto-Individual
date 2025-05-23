@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.nave {
+    display: flex;
+    height: 13vh;
+    background: #ffbd59;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#img_logo {
+    width: 10vw;
+}
+
+.logo-img {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 50px;
+    width: 65%;
+}
+
+#containerNav {
+    margin-right: 50px;
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-size: 19px;
+    text-decoration: none;
+}
+
+#containerNav a {
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#navHeader {
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Painel de Sobre*/

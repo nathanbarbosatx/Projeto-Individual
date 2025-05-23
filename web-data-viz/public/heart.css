@@ -286,6 +286,7 @@
 
 /* RODAPÉ*/
 .footer-container{
+    
     background-color: #ff9592;
     display: flex;
     flex-direction: row;
