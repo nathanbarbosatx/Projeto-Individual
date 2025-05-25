@@ -39,6 +39,7 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
+    flex-direction: row;
 }
 
 #navHeader {
@@ -50,6 +51,12 @@
 }
 
 /* Painel de Sobre*/
+.titulo{
+    margin-top: 100px;
+    align-items: center;
+    justify-items: center;
+    font-size: xx-large;
+}
 .painel{
     display: flex;
     flex-direction: row;
@@ -63,8 +70,10 @@
     max-width: 60%;
     background-color: #fff5d1;
     color: #333;
-    padding: 30px;
-    margin: 50px;
+    padding: 25px;
+    margin: 100px;
+    margin-right: auto;
+    margin-left: auto;
     max-width: 750px;
     border-left: 8px solid #f14b47;
     border-radius: 10px;
@@ -84,68 +93,35 @@
     text-align: left;
 }
 
-.Carrosel{
-    margin-top: 150px;
-    width: 36rem;
-    height: 23rem;
-    position: relative;
-    display: flex;
-    overflow: auto;
-    scroll-snap-type: mandatory;
+/* Imagens*/
+.gallery{
+    margin-top: 200px;
+    padding: 50px;
+    box-sizing: border-box;
 }
 
-.Carrosel img{
+.gallery-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2vw;
+    padding: 0 2vw;
+
+}
+.gallery-intens:hover{
+    transform: scale(1.2);
+}
+.gallery-intens{
+    width: 300px;
+    height: 300px;
+    border: 10px solid #fff;
+    box-shadow: 5px 5px 5px #000;
+    flex-grow: 1;
+}
+
+.gallery-intens img{
     width: 100%;
     height: 100%;
-    position: sticky;
-    left: 0;
-    flex-shrink: 0;
-    object-fit: cover;
-    scroll-behavior: smooth;
-    aspect-ratio: 4 / 3;
-
+    
 }
 
-.Carrosel img.imagem-vovo{
-   object-position: 50% 20%;
-   
-}
-
-
-.container-box{
-    display: flex;
-    flex-direction: row;
-
-}
-
-.Painel-Candidatura{
-    display: flex;
-    margin-top: 20px;
-    margin-left: 50px;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.imagem-candidatura img {
-  width: 300px;
-  height: auto;              
-  border-radius: 12px;         
-  border: 3px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
-  display: block;
-  margin: 0 auto;              
-}
-
-.texto-candidatura{
-    background-color: #fff5d1;
-    color: #333;
-    padding: 10px;
-    margin: 100px;
-    height: 200px;
-    width: 350px;
-    border-left: 8px solid #f14b47;
-    border-radius: 10px;
-    font-family: "Open Sans", sans-serif;
-    text-align: justify;
-    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
-}
