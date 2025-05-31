@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,10 +29,10 @@
     height: 30vh;
 }
 
-/* Container*/
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #ff9592;
+    background-color: #ffbd59	;
 }
 
 .container {
@@ -45,20 +45,20 @@ body {
 }
 
 .content {
-    background-color: #e0e9e9; /* Cor da tela dados*/
+    background-color: #e0e9e9; 
     border-radius: 15px;
     width: 960px;
     height: 50%;
     justify-content: space-between;
     align-items: center;
-    /* position: relative; */
+     position: relative; 
     margin-top: 0;
 }
 
 .content::before {
     content: "";
     position: absolute;
-    background-color:#9f3838; /*Cor da transi*/ 
+    background-color:#cc9747; 
     width: 40%;
     height: 100%;
     border-top-left-radius: 15px;
@@ -67,6 +67,8 @@ body {
 
     left: 0;
 }
+
+
 
 .title {
     font-size: 28px;
@@ -79,7 +81,8 @@ body {
 }
 
 .title-second {
-    color: #58af9b;
+    color: #ff9592;
+    margin: 15px;
 }
 
 .description {
@@ -118,19 +121,19 @@ body {
 
 .btn-primary:hover {
     background-color: #fff;
-    color: #58af9b;
+    color: #f14b47;
 }
 
 .btn-second {
-    background-color: #58af9b;
-    border: 1px solid #58af9b;
+    background-color: #ff9592;
+    border: 1px solid #ff9592;
     transition: background-color .5s;
 }
 
 .btn-second:hover {
     background-color: #fff;
-    border: 1px solid #58af9b;
-    color: #58af9b; /* Cor da fonte dentro do btn para mudar de sessão */
+    border: 1px solid #ff9592;
+    color: #ff9592; 
 }
 
 .first-content {
@@ -188,7 +191,7 @@ input:-webkit-autofill {
     padding: 0 5px;
 }
 
-/* segundo content*/
+
 
 .second-content {
     height: 60%;
@@ -274,4 +277,5 @@ input:-webkit-autofill {
     position: relative;
     z-index: -1;
     animation: deslocamentoDir 1.3s;
-}
+} 
+
