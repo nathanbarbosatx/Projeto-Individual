@@ -1,53 +1,143 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz - Tipos de Doadores</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f4;
-      color: #333;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      text-align: center;
-      color: #d16ba5;
-    }
-    .question {
-      margin: 20px 0;
-    }
-    .options label {
-      display: block;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-    button {
-      background-color: #d16ba5;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .result {
-      margin-top: 30px;
-      padding: 20px;
-      background-color: #fce4ec;
-      border-radius: 8px;
-    }
-  </style>
-</head>
-<body>
-  <h1>💖 Qual tipo de doador você é?</h1>
-  <form id="quizForm"></form>
-  <div id="result" class="result" style="display:none;"></div>
 
-  <script>
+var ax_menuitem = document.querySelectorAll('.item-menu')
+
+function selecionar() {
+    // removendo a classe ativo de um item que nao foi clicado
+    ax_menuitem.forEach((item) =>
+        item.classList.remove('ativo')
+    )
+    // add a classe ativo ao intem clicado
+    this.classList.add('ativo')
+
+}
+
+// 'Escutar de eventos' ao ser clicado pelo usuario
+
+ax_menuitem.forEach((item)=>
+    item.addEventListener('click',selecionar)
+)
+
+// expandir o menu
+var ax_btn = document.querySelector('#btn-exp')
+var ax_menu = document.querySelector('.menu-lateral')
+
+// add evento click assim que for clicado o 
+ax_btn.addEventListener('click', function(){
+    ax_menu.classList.toggle('expandir') // forma automazida ou seja se existir a class expandir remova e se nao existir adicione
+})
+
+// Mudando sessão
+
+function mudarConteudo(secao) {
+        const secoes = ["secao-inicio", "secao-painel", "secao-quiz"];
+
+
+        for (var i = 0; i < secoes.length; i++) {
+            console.log(secoes[i])
+            var s = document.querySelector(`#${secoes[i]}`)
+            s.style.display = "none";
+
+
+        }
+        if (secoes[2] == secao) {
+            document.querySelector(`#${secao}`).style.display = "block";
+        }
+
+        else if (secoes[1] == secao) {
+            document.querySelector(`#${secao}`).style.display = "block";
+        }
+        else {
+            document.querySelector(`#${secao}`).style.display = "flex";
+
+        }
+    }
+
+ // Grafíco
+
+
+
+const js_barras2 = document.getElementById('barras2');
+const js_barras1 = document.getElementById('barras1');
+
+new Chart(js_barras1, {
+    type: 'bar',
+    data: {
+      labels: ['🌟 Transformador Social', '🚀 Explorador do Conhecimento', '💖 Guardião da Vida', '🐾 Protetor dos Animais'],
+      datasets: [
+        {
+          label: 'Número de Alertas',
+          data: [2, 0, 0, 0],
+          borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        x: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Veículos'
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Número de Alertas'
+          },
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Os 4 Veículos que Mais Emitiram Alertas Nesta Semana'
+        }
+      }
+    }
+  });
+
+    new Chart(js_barras2, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [
+        {
+          label: 'Número de alertas',
+          data: [3, 2, 2, 2, 1, 0],
+          borderWidth: 1
+        }]
+    },
+    options: {
+      scales: {
+        x: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Meses'
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Número de Alertas'
+          },
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Número de Alertas dos Veículos no Primeiro Semestre de 2025'
+        }
+      }
+    }
+  });
+
+
+
+
+
+    // Inicio quiz
     const quizData = [
       {
         question: "1. Qual causa mais ressoa com você?",
@@ -193,6 +283,3 @@
 
       window.scrollTo({ top: resultDiv.offsetTop, behavior: "smooth" });
     });
-  </script>
-</body>
-</html>

@@ -99,9 +99,9 @@ function entrar() {
             'email-server': emailVar,
             'senha-server': senhaVar
         }
-    }).then(function (resposta) {
+    })
+    .then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
-//desgraça
         if (resposta.ok) {
             console.log(resposta);
 
@@ -112,9 +112,8 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.idusuario;
 
-                alert('é o window')
 
-
+                window.location.href= 'quiz.html'
             });
 
         } else {

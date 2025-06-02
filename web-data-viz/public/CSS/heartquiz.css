@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -7,57 +5,58 @@
     font-family: 'Outfit', sans-serif;
 }
 
-body{
+body {
     height: 100vh;
 }
 
-nav.menu-lateral{
+nav.menu-lateral {
     width: 80px;
     height: 100%;
-    background-color: #202020;
+    background-color: #Fda26b;
     padding: 40px 0 40px 1%;
-    box-shadow: 3px 0 0 #ff0077;
+    box-shadow: 3px 0 0 #fc8489;
     position: fixed;
     top: 0;
     left: 0;
     overflow: hidden;
     transition: .5s;
+    height: 100vh;
 }
 
-nav.menu-lateral.expandir{
+nav.menu-lateral.expandir {
     width: 300px;
 }
 
-.btn-expandir{
+.btn-expandir {
     width: 100%;
     padding-left: 10px;
 }
 
-.btn-expandir > i {
+.btn-expandir>i {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
 }
 
-ul{
+ul {
     height: 100%;
     list-style-type: none;
 }
 
-ul li.item-menu{
+ul li.item-menu {
     transition: .2s;
 }
 
-ul li.ativo{
-    background-color: #ff0077;
+ul li.ativo {
+    background-color: #fc8489;
 }
 
 
-ul li.item-menu:hover{
+ul li.item-menu:hover {
     background: #ff0077;
 }
 
-ul li.item-menu a{
+ul li.item-menu a {
     color: #fff;
     text-decoration: none;
     font-size: 20px;
@@ -67,11 +66,183 @@ ul li.item-menu a{
     line-height: 40px;
 }
 
-ul li.item-menu a .txt-link{
+ul li.item-menu a .txt-link {
     margin-left: 40px;
 }
 
-ul li.item-menu a .icon > i{
+ul li.item-menu a .icon>i {
     font-size: 30px;
     margin-left: 10px;
+}
+
+/* apresentação */
+
+
+#secao-inicio {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 60%;
+    background-color: #fff5d1;
+    color: #333;
+    padding: 30px;
+    margin: 25px;
+    max-width: 750px;
+    border-left: 8px solid #f14b47;
+    border-radius: 10px;
+    font-family: "Open Sans", sans-serif;
+    text-align: justify;
+    box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.inicio-conteudo {
+
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+    background-color: #FFBD59;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.quadrado {
+    color:#f14b47;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.elemento-quadrado {
+    color: rgb(255, 255, 254);
+    margin-top: 0vh;
+    text-align: center;
+    font-size: 2em;
+}
+
+
+
+
+ /* Grafico inicio  */
+
+
+
+
+#cards {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 94%; 
+    height: 40%;
+    align-self: center;
+    margin: 0% 0% 0.2% 1.5%;
+    justify-content: center;
+}
+ 
+.card {
+    width: 20%;
+    margin: 0.3% 0.5% 0.3% 0.5%;
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: small;
+    text-align: center;
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.1);
+    border-radius: 1vh;
+    background-color: whitesmoke;
+}
+
+.dado_card {
+    font-size: x-large;
+}
+
+
+.Painel-grafico {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+  margin-top: 2vh;
+  
+
+}
+
+.grafico {
+  margin-top: 30px;
+  max-width: 1000vh;
+  min-width: 90vh;
+  height: 900px;
+  margin-left: 150px;
+}
+
+
+/*  
+.Painel-grafico{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 15px;
+    margin-top: 5%;
+    align-items: center;
+
+}
+.grafico {
+    width: 80%;
+    height: 40vh;
+    margin: 0.5%;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.1);
+    border-radius: 1vh;
+}*/
+
+ /* grafico fim */
+
+
+/* Quiz  */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff8f4;
+    color: #333;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #d16ba5;
+}
+
+.question {
+    margin: 20px 0;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+button {
+    background-color: #d16ba5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.result {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fce4ec;
+    border-radius: 8px;
 }

@@ -1,48 +1,50 @@
-create database HEART;
-use HEART; 
+create database heart;
+use heart; 
+show tables;
 
-
-create table TipoDoador(
-idTipo int primary key,
+create table tipodoador(
+idtipo int primary key auto_increment,
 tipo varchar(45),
 descricao varchar(1000)
 );
 
 
-create table Usuario(
-idUsuario int primary key,
+create table usuario(
+idusuario int primary key auto_increment,
 fktipo int null,
 constraint fkusuariotipo foreign key (fktipo)
-references TipoDoador(idTipo),
-Nome Varchar(45),
-Email varchar(45),
-Senha varchar(45)
+references TipoDoador(idtipo),
+nome Varchar(45),
+email varchar(45),
+senha varchar(45)
 );
 
-create table Pergunta(
-idPergunta int primary key,
+
+
+create table pergunta(
+idpergunta int primary key auto_increment,
 descricao varchar(1000)
 );
 
 
-create table Resultado(
-idResult int ,
+create table resultado(
+idresult int auto_increment,
 fkusuario int,
 constraint fkresultadousuario foreign key (fkusuario)
-references Usuario(idUsuario),
+references usuario(idusuario),
 fkpergunta int,
 constraint fkresultadopergunta foreign key (fkpergunta)
-references Pergunta(idPergunta),
-primary key(idResult,fkusuario,fkpergunta),
-Pontos int
+references pergunta(idpergunta),
+primary key(idresult,fkusuario,fkpergunta),
+pontos int
 );
 
-create table Ongs(
-idOng int primary key,
-fkTipoDoador int,
-constraint fkOngsTipo foreign key (fkTipoDoador)
-references TipoDoador(idTipo),
-Nome Varchar(45),
-Descricao varchar(1000),
+create table ongs(
+idong int primary key auto_increment,
+fktipodoador int,
+constraint fkongstipo foreign key (fktipodoador)
+references tipodoador(idtipo),
+nome Varchar(45),
+descricao varchar(1000),
 link varchar(150)
 );

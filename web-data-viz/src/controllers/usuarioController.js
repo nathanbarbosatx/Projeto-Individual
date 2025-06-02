@@ -9,7 +9,7 @@ function autenticar(req, res) {
     }
 
     usuarioModel.autenticar(email, senha)
-        .then(resultado => {
+        .then(resultadoAutenticar => {
             if (resultadoAutenticar.length == 1) {
                     console.log(resultadoAutenticar);
 
