@@ -6,7 +6,7 @@ var body = document.querySelector("body");
 
 
 btnSignin.addEventListener("click", function () {
-   body.className = "sign-in-js"; 
+    body.className = "sign-in-js";
 });
 
 btnSignup.addEventListener("click", function () {
@@ -25,25 +25,26 @@ function cadastrar() {
     var nomeVar = ipt_nome.value;
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
+
+    console.log(nomeVar);
+    console.log(emailVar);
+    console.log(senhaVar);
     // var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     // Verificando se há algum campo em branco
     if (
         nomeVar == "" ||
         emailVar == "" ||
-        senhaVar == "" 
-    ) {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML =
-            "Preencha os campos!";
-
-        finalizarAguardar();
-        return false;
-    } else {
-        setInterval(sumirMensagem, 5000);
-    }
+        senhaVar == ""
+    ) 
+        
+    
+    // // else {
+    //     // setInterval(sumirMensagem, 5000);
+    // }
 
     // Enviando o valor da nova input
+    // alert('oioi')
     fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
@@ -61,64 +62,46 @@ function cadastrar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
-
-                mensagem_erro.innerHTML =
-                    "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-
-                limparFormulario();
-                finalizarAguardar();
+                alert('deu certo')
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
         })
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
         });
 
-    return false;
 }
 
-function sumirMensagem() {
-    cardErro.style.display = "none";
-}
+
 
 
 // LOGIN
 
 function entrar() {
-    aguardar();
 
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    var emailVar = ipt_emaillog.value;
+    var senhaVar = ipt_senhalog.value;
 
     if (emailVar == "" || senhaVar == "") {
         cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "Preencha os campos";
-        finalizarAguardar();
-        return false;
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
     }
-    else {
-        setInterval(sumirMensagem, 5000)
-    }
+
 
     console.log("FORM LOGIN: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
 
-    fetch("/usuarios/autenticar", {
-        method: "POST",
+    fetch('/usuarios/autenticar', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
+            'Content-Type': 'application/json',
+            'email-server': emailVar,
+            'senha-server': senhaVar
+        }
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
-
+//desgraça
         if (resposta.ok) {
             console.log(resposta);
 
@@ -127,22 +110,19 @@ function entrar() {
                 console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.ID_USUARIO = json.idusuario;
 
-                setTimeout(function () {
-                    window.location = "cliente.html";
-                }, 1000); // apenas para exibir o loading
+                alert('é o window')
+
 
             });
 
         } else {
-            alert('Erro ao realizar login')
-
+            alert("Login inválido tente novamente!")
             console.log("Houve um erro ao tentar realizar o login!");
 
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizarAguardar(texto);
             });
         }
 
@@ -150,9 +130,5 @@ function entrar() {
         console.log(erro);
     })
 
-    return false;
 }
 
-function sumirMensagem() {
-    cardErro.style.display = "none"
-} 
