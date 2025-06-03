@@ -36,9 +36,9 @@ function cadastrar() {
         nomeVar == "" ||
         emailVar == "" ||
         senhaVar == ""
-    ) 
-        
-    
+    ) { }
+
+
     // // else {
     //     // setInterval(sumirMensagem, 5000);
     // }
@@ -100,34 +100,34 @@ function entrar() {
             'senha-server': senhaVar
         }
     })
-    .then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-        if (resposta.ok) {
-            console.log(resposta);
+        .then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+            if (resposta.ok) {
+                console.log(resposta);
 
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.idusuario;
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idusuario;
 
 
-                window.location.href= 'quiz.html'
-            });
+                    window.location.href = 'quiz.html'
+                });
 
-        } else {
-            alert("Login inválido tente novamente!")
-            console.log("Houve um erro ao tentar realizar o login!");
+            } else {
+                alert("Login inválido tente novamente!")
+                console.log("Houve um erro ao tentar realizar o login!");
 
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
 
-    }).catch(function (erro) {
-        console.log(erro);
-    })
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
 }
 

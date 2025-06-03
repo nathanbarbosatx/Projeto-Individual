@@ -23,7 +23,6 @@
 <body>
     <div class="menu">
         <nav class="menu-lateral">
-
             <div class="btn-expandir">
                 <i class="bi bi-list" id="btn-exp"></i>
             </div>
@@ -55,56 +54,50 @@
             </ul>
         </nav>
     </div>
-
     <section id="secao-inicio">
+        <div class="Painel-conteudo">
+            <div class="inicio-conteudo">
+                <div class="quadrado"><b>BEM-VINDO AO QUIZ HEARTtoHEART</b></div>
 
-        <div class="inicio-conteudo">
-            <div class="quadrado"><b>BEM-VINDO AO QUIZ HEARTtoHEART</b></div>
-
-            <div class="elemento-quadrado">
-                <b>Você está a um passo de descobrir seu tipo de doador!</b><br>
-                <b>Conecte-se com a ONG que mais reflete o seu coração.</b><br>
-                <b>Responda ao nosso quiz e veja o resultado na hora!</b>
+                <div class="elemento-quadrado">
+                    <b>Você está a um passo de descobrir seu tipo de doador!</b>
+                    <br><br>
+                    <b>Conecte-se com a ONG que mais reflete o seu coração.</b>
+                    <br><br>
+                    <b>Responda ao nosso quiz e veja o resultado na hora!</b>
+                </div>
             </div>
-
-
-
         </div>
-
     </section>
 
 
     <section id="secao-painel" style="display: none;">
 
-        <div class="Painel-Dash">
+        <main class="Painel-Dash">
 
-        <div id="cards">
-            <span class="card">
-                <b class="dado_card">2</b>
-                <p>Veículos Pecisam de Atenção</p>
-                <i style="color: blue">🔍︎ Veja Quais</i>
-            </span>
-            <span class="card">
-                <b class="dado_card">3/4</b>
-                <p>dos Veículos Estão Ativos</p>
-                <i style="color: blue">🔍︎Veja Quais</i>
-            </span>
-            <span class="card">
-                <b class="dado_card">10</b>
-                <p>Alerta(s) de Temperatura Nesse Semestre</p>
-                <i style="color: red;">▲ 2 a mais que no semestre anterior</i>
-            </span>
-            <span class="card">
-                <b class="dado_card">2</b>
-                <p>Alerta(s) de Temperatura Essa Semana</p>
-                <i style="color: green">▼1 a menos que a semana anterior</i>
-            </span>
-        </div>
-        <div class="Painel-grafico">
-            <span class="grafico"> <canvas id="barras1"></canvas> </span>
-            <span class="grafico"> <canvas id="barras2"></canvas> </span>
-        </div>
-    </div>
+            <div id="cards">
+                <span class="card">
+                    <b class="dado_card">Doador cachorro</b>
+                    <p>Maior tipo de doador</p>
+                    <!-- <i style="color: blue"></i> -->
+                </span>
+                <span class="card">
+                    <b class="dado_card">Doador coração</b>
+                    <p>Menor tipo de doador</p>
+                    <!-- <i style="color: blue"></i> -->
+                </span>
+                <span class="card">
+                    <b class="dado_card">10</b>
+                    <p>Quantidade de acertos</p>
+                    <i style="color: red;">▲ 2 a mais que no semestre anterior</i>
+                </span>
+            </div>
+            <div class="Painel-grafico">
+                <h2></h2>
+                <span class="grafico"> <canvas id="barras1"></canvas> </span>
+                <span class="grafico"> <canvas id="barras2"></canvas> </span>
+            </div>
+        </main>
     </section>
 
 
@@ -113,10 +106,19 @@
 
     <section id="secao-quiz" style="display: none;">
 
-        <h1>💖 Qual tipo de doador você é?</h1>
-        <form id="quizForm"></form>
-        <div id="result" class="result" style="display:none;"></div>
+        <div class="quiz-painel">
+            <div class="txt-quiz">
+                <h1><b>💖 Qual tipo de doador você é?</b></h1>
+            </div>
 
+            <div class="quizContainer">
+                <div id="quiz-box">
+
+                </div>
+            </div>
+            <button onclick="verResultado()">Ver meu tipo de doador</button>
+            <div id="result" style="display: none;"></div>
+        </div>
     </section>
     <script src="./JS/quiz.js"></script>
 </body>
