@@ -9,6 +9,7 @@ function registrar(fkusuario, fktipo) {
     return database.executar(instrucao);
 }
 
+
 module.exports = {
     registrar
 }

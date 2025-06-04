@@ -27,6 +27,9 @@ function registrar(req, res) {
     }
 }
 
+
+
+
 module.exports = {
     registrar
 }

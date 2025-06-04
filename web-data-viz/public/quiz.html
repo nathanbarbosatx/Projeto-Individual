@@ -15,12 +15,14 @@
     <link rel="icon" type="imagex/png" href="./Fotos/logoheart.png">
     <link rel="stylesheet" href="./CSS/heartquiz.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
     <title>HEARTtoHEART | Quiz</title>
 
 
 </head>
 
 <body>
+
     <div class="menu">
         <nav class="menu-lateral">
             <div class="btn-expandir">
@@ -77,25 +79,23 @@
 
             <div id="cards">
                 <span class="card">
-                    <b class="dado_card">Doador cachorro</b>
+                    <b class="dado_card" id="kpimaior"></b>
                     <p>Maior tipo de doador</p>
-                    <!-- <i style="color: blue"></i> -->
                 </span>
                 <span class="card">
-                    <b class="dado_card">Doador coração</b>
+                    <b class="dado_card" id="kpimenor"></b>
                     <p>Menor tipo de doador</p>
-                    <!-- <i style="color: blue"></i> -->
                 </span>
                 <span class="card">
-                    <b class="dado_card">10</b>
-                    <p>Quantidade de acertos</p>
-                    <i style="color: red;">▲ 2 a mais que no semestre anterior</i>
+                    <b class="dado_card" id="kpiuser"></b>
+                    <p>Quantidade de Doadores</p>
                 </span>
             </div>
             <div class="Painel-grafico">
+
                 <h2></h2>
                 <span class="grafico"> <canvas id="barras1"></canvas> </span>
-                <span class="grafico"> <canvas id="barras2"></canvas> </span>
+                <!-- <span class="grafico"> <canvas id="mychart"></canvas> </span> -->
             </div>
         </main>
     </section>
@@ -121,6 +121,7 @@
         </div>
     </section>
     <script src="./JS/quiz.js"></script>
+        
 </body>
 
 </html>

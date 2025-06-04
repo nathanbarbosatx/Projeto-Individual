@@ -45,6 +45,7 @@ function mudarConteudo(secao) {
 
   else if (secoes[1] == secao) {
     document.querySelector(`#${secao}`).style.display = "block";
+    obterDadosGrafico()
   }
   else {
     document.querySelector(`#${secao}`).style.display = "flex";
@@ -118,165 +119,130 @@ function mudarConteudo(secao) {
 //   // });
 
 
-function obterDadosGrafico(fktipo) {
 
-  alterarTitulo(fktipo)
-
-  if (proximaAtualizacao != undefined) {
-    clearTimeout(proximaAtualizacao);
-  }
-
-  fetch(`/medidas/ultimas/${fktipo}`, { cache: 'no-store' }).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (resposta) {
-        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-        resposta.reverse();
-
-        plotarGrafico(resposta, fktipo);
-
-      });
-    } else {
-      console.error('Nenhum dado encontrado ou erro na API');
-    }
-  })
-}
-
-
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta, fktipo) {
-
-  console.log('iniciando plotagem do gráfico...');
-
-  // Criando estrutura para plotar gráfico - labels
-  let labels = [];
-
-  // Criando estrutura para plotar gráfico - dados
-  let dados = {
-    labels: ['🌟Transformador', '🚀Explorador', '💖Guardião', '🐾Protetor'],
-    datasets: [{
-      label: '',
-      data: [],
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-    },
-    {
-      label: '',
-      data: [],
-      fill: false,
-      borderColor: 'rgb(199, 52, 52)',
-      tension: 0.1
-    }]
-  };
-
-  console.log('----------------------------------------------')
-  console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-  console.log(resposta)
-
-  // Inserindo valores recebidos em estrutura para plotar o gráfico
-  for (i = 0; i < resposta.length; i++) {
-    var registro = resposta[i];
-    dados.datasets[0].data.push(registro.qtdTipoDoador);
-    dados.datasets[1].data.push(registro.tipo);
-  }
-
-  console.log('----------------------------------------------')
-  console.log('O gráfico será plotado com os respectivos valores:')
-  console.log('Labels:')
-  console.log(labels)
-  console.log('Dados:')
-  console.log(dados.datasets)
-  console.log('----------------------------------------------')
-
-  // Criando estrutura para plotar gráfico - config
-  const config = {
-    type: 'pie',
-    data: dados,
-  };
-
-  // Adicionando gráfico criado em div na tela
-  let myChart = new Chart(
-    document.getElementById(`myChartCanvas${fktipo}`),
-    config
-  );
-
-  setTimeout(() => atualizarGrafico(fktipo, dados, myChart), 2000);
-}
-
-
-// Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
-// buscando a última medida inserida em tabela contendo as capturas, 
-
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
-/*function atualizarGrafico(idAquario, dados, myChart) {
-
-
-
-    fetch(`/medidas/tempo-real/${idAquario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (novoRegistro) {
-
-                obterdados(idAquario);
-                // alertar(novoRegistro, idAquario);
-                console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-                console.log(`Dados atuais do gráfico:`);
-                console.log(dados);
-
-                let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-                avisoCaptura.innerHTML = ""
-
-
-                if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-                    console.log("---------------------------------------------------------------")
-                    console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                    avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-                    console.log("Horário do novo dado capturado:")
-                    console.log(novoRegistro[0].momento_grafico)
-                    console.log("Horário do último dado capturado:")
-                    console.log(dados.labels[dados.labels.length - 1])
-                    console.log("---------------------------------------------------------------")
-                } else {
-                    // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-                    dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-                    myChart.update();
-                }
-
-                // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
-            // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-            proximaAtualizacao = setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-        }
+function obterDadosGrafico() {
+  fetch(`/usuarios/dadosgrafico`, { cache: 'no-store' })
+    .then(response => response.ok ? response.json() : Promise.reject(response.statusText))
+    .then(resposta => {
+      console.log(resposta)
+      plotargrafico(resposta);
     })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
+    .catch(err => console.error('Erro teste:', err));
+}
 
-}*/
+
+
+
+function plotargrafico(resposta) {
+
+
+  vt_tipo = [];
+  vt_qtd = [];
+
+  for (let i = 0; i < resposta.length; i++) {
+    vt_tipo.push(resposta[i].tipo);
+    vt_qtd.push(resposta[i].qtdTipoDoador);
+  }
+  console.log(vt_tipo);
+  console.log(vt_qtd);
+
+
+  var maior = 0;
+  var maiordoador = '';
+  var menor = 99;
+  var menordoador = '';
+  var totaluser = 0;
+
+
+  for (var i = 0; i < vt_qtd.length; i++) {
+
+    totaluser += vt_qtd[i]
+    if (vt_qtd[i] > maior) {
+      maior = vt_qtd[i]
+      maiordoador = vt_tipo[i]
+    }
+    if (vt_qtd[i] < menor) {
+      menor = vt_qtd[i]
+      menordoador = vt_tipo[i]
+    }
+
+
+  }
+
+  for (var i = 0; i < vt_qtd.length; i++) {
+    
+    var resultado = vt_qtd[i]/totaluser*100
+    vt_qtd[i] = resultado.toFixed(2)
+    
+  }
+
+  kpiuser.innerHTML = totaluser;
+  kpimaior.innerHTML = maiordoador;
+  kpimenor.innerHTML = menordoador;
+
+
+
+
+  const ctz = document.getElementById("barras1")
+  const grafico = new Chart(ctz, {
+    type: 'doughnut',
+    data: {
+      labels: vt_tipo,
+      datasets: [{
+        data: vt_qtd,
+        backgroundColor: ['#f14b47', '#eb8bce', '#38b6ff','#00d929'],
+        borderColor: '#00aeef',
+        borderWidth: 10
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Porcentagem de Cada Tipo de Doador',
+          color: '#ffffff',
+          font: {
+            size: 25,
+            family: 'Arial',
+            weight: 'bold'
+          },
+          padding: {
+            top: 10,
+            bottom: 10
+          }
+        },
+        legend: {
+          display: false,
+          position: 'left',
+          labels: {
+            color: '#ffffff'
+          }
+        },
+        datalabels: {
+          color: '#fff',
+          font: {
+            weight: 'bold',
+            size: 26
+          },
+          formatter: function (value, context) {
+            return value + "%"
+          }
+        },
+
+      },
+      cutout: '60%'
+    },
+    plugins: [ChartDataLabels]
+  });
+
+}
+
+
 
 
 
 
 // Inicio quiz
-
-// window.addEventListener('load', () => {
-//   idusuario = sessionStorage.ID_USUARIO;
-//   idresult = sessionStorage.ID_RESULT;
-
-// });
 
 var perguntas = [
   {
@@ -390,6 +356,7 @@ document.getElementById("quiz-box").innerHTML = htmlQuiz;
 
 // ver o resultado do quiz
 function verResultado() {
+  const idusuario = sessionStorage.ID_USUARIO;
   var contagem = { a: 0, b: 0, c: 0, d: 0 };
 
   // esta vendo qual alternativa o usuario colocou na pergunta 'x' e adiciona +1 a contagem
@@ -410,13 +377,14 @@ function verResultado() {
     "<h2>" + resultados[mais].titulo + "</h2><p>" + resultados[mais].descricao + "</p>";
 
 
-    //Rota pra mandar o resultado do quiz para o BD
+  //Rota pra mandar o resultado do quiz para o BD
   fetch("/quiz/registrar", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
+      
       fkusario: idusuario,
       fktipo: resultados[mais].fkTipo
     })

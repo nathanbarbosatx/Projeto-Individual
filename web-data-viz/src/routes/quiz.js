@@ -7,4 +7,5 @@ router.post("/registrar", function (req, res) {
     quizController.registrar(req, res);
 });
 
+
 module.exports = router;
