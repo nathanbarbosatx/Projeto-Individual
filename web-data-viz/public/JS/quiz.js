@@ -57,69 +57,6 @@ function mudarConteudo(secao) {
 
 
 
-// const js_barras2 = document.getElementById('barras2');
-// const js_barras1 = document.getElementById('barras1');
-
-// new Chart(js_barras1, {
-//     type: 'doughnut',
-//     data: {
-//       labels: ['🌟Transformador', '🚀Explorador', '💖Guardião', '🐾Protetor'],
-//       datasets: [
-//         {
-//           label: 'Quantidade De Doadores',
-//           data: [20,25,25,30],
-//           borderWidth: 1
-//         }]
-//     },
-//     options: {
-//             plugins: {
-//         title: {
-//           display: true,
-//           text: ''
-//         }
-//       }
-//     }
-//   });
-
-//     new Chart(js_barras2, {
-//     type: 'bar',
-//     data: {
-//       labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
-//       datasets: [
-//         {
-//           label: 'Número de alertas',
-//           data: [3, 2, 2, 2, 1, 0],
-//           borderWidth: 1
-//         }]
-//     },
-//     options: {
-//       scales: {
-//         x: {
-//           beginAtZero: true,
-//           title: {
-//             display: true,
-//             text: 'Meses'
-//           },
-//         },
-//         y: {
-//           beginAtZero: true,
-//           title: {
-//             display: true,
-//             text: 'Número de Alertas'
-//           },
-//         }
-//       },
-//       plugins: {
-//         title: {
-//           display: true,
-//           text: 'Número de Alertas dos Veículos no Primeiro Semestre de 2025'
-//         }
-//       }
-//     }
-//   // });
-
-
-
 function obterDadosGrafico() {
   fetch(`/usuarios/dadosgrafico`, { cache: 'no-store' })
     .then(response => response.ok ? response.json() : Promise.reject(response.statusText))
@@ -322,22 +259,22 @@ var perguntas = [
 var resultados = {
   a: {
     titulo: "🌟 Transformador Social",
-    descricao: "Você acredita no poder da educação e inovação para mudar o mundo. É como a Gerando Falcões: transforma realidades com ação e coragem.",
+    descricao: "Você acredita no poder da educação e inovação para mudar o mundo. É como a Gerando Falcões: transforma realidades com ação e coragem. Aqui esta o Link da Ong: https://gerandofalcoes.com/ 🌟",
     fkTipo: "1"
   },
   b: {
     titulo: "🚀 Explorador do Conhecimento",
-    descricao: "Você é movido pelo saber e pela partilha. Assim como a Desbrava7, acredita que conhecimento empodera e inspira.",
+    descricao: "Você é movido pelo saber e pela partilha. Assim como a Desbrava7, acredita que conhecimento empodera e inspira. Aqui esta o Link da Ong: https://desbrava7.com/ 🚀 ",
     fkTipo: "2"
   },
   c: {
     titulo: "💖 Guardião da Vida",
-    descricao: "Sua empatia é seu guia. Você acolhe, apoia e oferece presença, como a ACTC, cuidando de quem mais precisa.",
+    descricao: "Sua empatia é seu guia. Você acolhe, apoia e oferece presença, como a ACTC, cuidando de quem mais precisa. Aqui esta o Link da Ong: https://www.actc.org.br/ 💖",
     fkTipo: "3"
   },
   d: {
     titulo: "🐾 Protetor dos Animais",
-    descricao: "Você sente pelos que não têm voz. Como o Paraíso dos Focinhos, se dedica ao cuidado e à defesa dos animais com amor.",
+    descricao: "Você sente pelos que não têm voz. Como o Paraíso dos Focinhos, se dedica ao cuidado e à defesa dos animais com amor. Aqui esta p Link da Ong: https://wwwparaisodosfocinhos.com.br/ 🐾 ",
     fkTipo: "4"
   }
 };

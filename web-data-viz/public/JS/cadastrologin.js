@@ -36,15 +36,14 @@ function cadastrar() {
         nomeVar == "" ||
         emailVar == "" ||
         senhaVar == ""
-    ) { }
+    ) {
+        alert('Sua Primeira vez?')
+        alert('Faça o Cadastro')
+    } else {
 
-
-    // // else {
-    //     // setInterval(sumirMensagem, 5000);
-    // }
+    }
 
     // Enviando o valor da nova input
-    // alert('oioi')
     fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
@@ -60,9 +59,10 @@ function cadastrar() {
     })
         .then(function (resposta) {
             console.log("resposta: ", resposta);
-
+            alert('Cadastrado Realizado com sucesso!!');
+                alert('Agora va para o login');
             if (resposta.ok) {
-                alert('deu certo')
+                
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
@@ -84,8 +84,7 @@ function entrar() {
     var senhaVar = ipt_senhalog.value;
 
     if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        alert('Insira Dados do seu login')
     }
 
 
